@@ -1,9 +1,9 @@
 'scopeName': 'source.kl'
 'fileTypes': [
-  'kl'
+  'k'
 ]
 'firstLineMatch': '(?i)-\\*-[^*]*(Mode:\\s*)?C(\\s*;.*?)?\\s*-\\*-'
-'name': 'C'
+'name': 'KL'
 'patterns': [
   {
     'include': '#preprocessor-rule-enabled'
@@ -42,7 +42,7 @@
     'name': 'variable.other.readwrite.static.mac-classic.kl'
   }
   {
-    'match': '\\b(NULL|true|false|TRUE|FALSE)\\b'
+    'match': '\\b(NULL|null|true|false|TRUE|FALSE)\\b'
     'name': 'constant.language.kl'
   }
   {
@@ -265,7 +265,7 @@
   {
     # FIRST CAPTURE meta.function.kl scope (provides an injectable scope, balanced parentheses and prevents unnecessary scope nesting)
     'begin': '''(?x)
-      (?!(?:while|for|do|if|else|switch|catch|enumerate|return|typeid|alignof|alignas|sizeof|[cr]?iterate|asm|__asm__|auto|bool|_Bool|char|_Complex|double|enum|float|_Imaginary|int|long|short|signed|struct|typedef|union|unsigned|void)\\s*\\()
+      (?!(?:while|for|do|if|else|switch|catch|enumerate|return|typeid|alignof|alignas|sizeof|[cr]?iterate|asm|__asm__|auto|var|final|import|as|bool|_Bool|char|_Complex|double|enum|float|_Imaginary|int|long|short|signed|struct|class|def|typedef|union|unsigned|void)\\s*\\()
       (?=
         (?:[A-Za-z_][A-Za-z0-9_]*+|::)++\\s*\\(  # actual name
         |
@@ -724,7 +724,7 @@
   'storage_types':
     'patterns': [
       {
-        'match': '\\b(asm|__asm__|auto|bool|_Bool|char|_Complex|double|enum|float|_Imaginary|int|long|short|signed|struct|typedef|union|unsigned|void)\\b'
+        'match': '\\b(asm|__asm__|auto|var|final|import|as|bool|_Bool|char|_Complex|double|enum|float|_Imaginary|int|long|short|signed|struct|class|def|typedef|union|unsigned|void)\\b'
         'name': 'storage.type.kl'
       }
     ]
@@ -906,7 +906,7 @@
         'include': '#operators'
       }
       {
-        'match': '\\b(NULL|true|false|TRUE|FALSE)\\b'
+        'match': '\\b(NULL|null|true|false|TRUE|FALSE)\\b'
         'name': 'constant.language.kl'
       }
       {
@@ -1522,7 +1522,7 @@
         # Function scope patterns for #define lines (terminates at newline w/o line_continuation_character)
         # FIRST CAPTURE meta.function.kl scope (provides an injectable scope, balanced parentheses and prevents unnecessary scope nesting)
         'begin': '''(?x)
-          (?!(?:while|for|do|if|else|switch|catch|enumerate|return|typeid|alignof|alignas|sizeof|[cr]?iterate|asm|__asm__|auto|bool|_Bool|char|_Complex|double|enum|float|_Imaginary|int|long|short|signed|struct|typedef|union|unsigned|void)\\s*\\()
+          (?!(?:while|for|do|if|else|switch|catch|enumerate|return|typeid|alignof|alignas|sizeof|[cr]?iterate|asm|__asm__|auto|var|final|import|as|bool|_Bool|char|_Complex|double|enum|float|_Imaginary|int|long|short|signed|struct|class|def|typedef|union|unsigned|void)\\s*\\()
           (?=
             (?:[A-Za-z_][A-Za-z0-9_]*+|::)++\\s*\\(  # actual name
             |
