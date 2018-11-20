@@ -18,7 +18,7 @@
     'include': '#comments'
   }
   {
-    'match': '\\b(break|case|continue|default|do|else|for|goto|if|_Pragma|return|try|catch|raise|throw|switch|while)\\b'
+    'match': '\\b(break|case|continue|default|do|else|for|goto|with|if|_Pragma|return|try|catch|raise|throw|switch|while)\\b'
     'name': 'keyword.control.kl'
   }
   {
@@ -265,7 +265,7 @@
   {
     # FIRST CAPTURE meta.function.kl scope (provides an injectable scope, balanced parentheses and prevents unnecessary scope nesting)
     'begin': '''(?x)
-      (?!(?:while|for|do|if|else|switch|catch|enumerate|return|try|catch|raise|throw|typeid|alignof|alignas|sizeof|[cr]?iterate|asm|__asm__|auto|var|final|import|in|and|or|is|not|as|bool|_Bool|char|_Complex|double|enum|float|_Imaginary|int|long|short|signed|struct|class|trait|def|typedef|union|unsigned|void)\\s*\\()
+      (?!(?:while|for|do|with|if|else|switch|catch|enumerate|return|try|catch|raise|throw|typeid|alignof|alignas|sizeof|[cr]?iterate|asm|__asm__|auto|var|final|import|in|and|or|is|not|as|bool|_Bool|char|_Complex|double|enum|float|_Imaginary|int|long|short|signed|struct|class|trait|def|typedef|union|unsigned|void)\\s*\\()
       (?=
         (?:[A-Za-z_][A-Za-z0-9_]*+|::)++\\s*\\(  # actual name
         |
@@ -397,7 +397,7 @@
   'c_function_call':
     # FIRST CAPTURE meta.function-call.kl scope (provides an injectable scope, balanced parentheses and prevents unnecessary scope nesting)
     'begin': '''(?x)
-      (?!(?:while|for|do|if|else|switch|catch|enumerate|return|try|catch|raise|throw|typeid|alignof|alignas|sizeof|[cr]?iterate)\\s*\\()
+      (?!(?:while|for|do|with|if|else|switch|catch|enumerate|return|try|catch|raise|throw|typeid|alignof|alignas|sizeof|[cr]?iterate)\\s*\\()
       (?=
       (?:[A-Za-z_][A-Za-z0-9_]*+|::)++\\s*\\(  # actual name
       |
@@ -1522,7 +1522,7 @@
         # Function scope patterns for #define lines (terminates at newline w/o line_continuation_character)
         # FIRST CAPTURE meta.function.kl scope (provides an injectable scope, balanced parentheses and prevents unnecessary scope nesting)
         'begin': '''(?x)
-          (?!(?:while|for|do|if|else|switch|catch|enumerate|return|try|catch|raise|throw|typeid|alignof|alignas|sizeof|[cr]?iterate|asm|__asm__|auto|var|final|import|in|and|or|is|not|as|bool|_Bool|char|_Complex|double|enum|float|_Imaginary|int|long|short|signed|struct|class|trait|def|typedef|union|unsigned|void)\\s*\\()
+          (?!(?:while|for|do|with|if|else|switch|catch|enumerate|return|try|catch|raise|throw|typeid|alignof|alignas|sizeof|[cr]?iterate|asm|__asm__|auto|var|final|import|in|and|or|is|not|as|bool|_Bool|char|_Complex|double|enum|float|_Imaginary|int|long|short|signed|struct|class|trait|def|typedef|union|unsigned|void)\\s*\\()
           (?=
             (?:[A-Za-z_][A-Za-z0-9_]*+|::)++\\s*\\(  # actual name
             |
@@ -1635,7 +1635,7 @@
       {
         # Function patterns in #define lines (terminates at newline w/o line_continuation_character)
         'begin': '''(?x)
-          (?!(?:while|for|do|if|else|switch|catch|enumerate|return|try|catch|raise|throw|typeid|alignof|alignas|sizeof|[cr]?iterate)\\s*\\()
+          (?!(?:while|for|do|with|if|else|switch|catch|enumerate|return|try|catch|raise|throw|typeid|alignof|alignas|sizeof|[cr]?iterate)\\s*\\()
           (
           (?:[A-Za-z_][A-Za-z0-9_]*+|::)++  # actual name
           |
@@ -1695,7 +1695,7 @@
       }
       {
         'begin': '''(?x)
-          (?!(?:while|for|do|if|else|switch|catch|enumerate|return|try|catch|raise|throw|typeid|alignof|alignas|sizeof|[cr]?iterate)\\s*\\()
+          (?!(?:while|for|do|with|if|else|switch|catch|enumerate|return|try|catch|raise|throw|typeid|alignof|alignas|sizeof|[cr]?iterate)\\s*\\()
           (
           (?:[A-Za-z_][A-Za-z0-9_]*+|::)++  # actual name
           |
@@ -1753,7 +1753,7 @@
       }
       {
         'begin': '''(?x)
-          (?!(?:while|for|do|if|else|switch|catch|enumerate|return|try|catch|raise|throw|typeid|alignof|alignas|sizeof|[cr]?iterate)\\s*\\()
+          (?!(?:while|for|do|with|if|else|switch|catch|enumerate|return|try|catch|raise|throw|typeid|alignof|alignas|sizeof|[cr]?iterate)\\s*\\()
           (
           (?:[A-Za-z_][A-Za-z0-9_]*+|::)++  # actual name
           |
